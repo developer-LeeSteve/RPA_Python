@@ -24,12 +24,8 @@ tbCount = len(companyList)
 companyCount = 0
 cnt = 0
 
-check = True
+check = False
 for i in range(tbCount):
-
-	if i == tbCount-1:
-		print('해당 기업이 존재하지 않습니다.')
-		check = False
 
 	if i > 0:
 
@@ -39,14 +35,18 @@ for i in range(tbCount):
 
 		companyName = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ') > td:nth-child(2) > a').get_text()
 
-		if companyName == '삼성전자':
+		if companyName == 'SK하이닉스':
 
 			companyRow = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ')')
 
 			companyPrice = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ') > td:nth-child(3)').get_text()
 
-			tempPrice = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ') > td:nth-child(5) > span').get_text()
-			companyPriceChange = tempPrice[5:-5]
+			companyPriceChange = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ') > td:nth-child(5) > span').get_text()
+			companyPriceChange = companyPriceChange[5:-5]
+			if len(companyPriceChange) == 0:
+				companyPriceChange = str(0)
+			elif companyPriceChange[0] != '-':
+				companyPriceChange = '+' + companyPriceChange
 
 			tempMCap = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ') > td:nth-child(7)').get_text()
 			companyMCap = ''.join([x for x in tempMCap if x.isdigit()]) + '0'*8
@@ -70,6 +70,9 @@ for i in range(tbCount):
 
 		if companyCount%5 == 0:
 			cnt += 3
+
+		if i == tbCount-1 and check == False:
+			print('해당 기업이 존재하지 않습니다.')
 
 if check:
 	# 외인 순매매량
