@@ -19,5 +19,7 @@ for i in range(len(mainNewsContent)):
 		mainNewsContent = mainNewsContent[:i+1]
 		break
 
-print('기사 제목: ' + mainNewsTitle)
-print('기사 내용: ' + mainNewsContent)
+def main1():
+	return mainNewsTitle
+def main2():
+	return mainNewsContent

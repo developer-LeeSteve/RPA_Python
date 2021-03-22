@@ -110,13 +110,39 @@ if check:
 		companyNewsTitle = newsTitleTable.get_text()
 		newsTitleList.append(companyNewsTitle)
 
+	# print(newsUrl)
+	# print('기업: ' + companyName)
+	# print('주가: ' + companyPrice)
+	# print('주가 등락: ' + companyPriceChange)
+	# print('시가총액(조원): ' + companyMCap)
+	# print('외인 보유 비중: ' + companyForeignPercentage + '%')
+	# print('외인 순매매량(천): ' + companyForeignSoldQuantity)
+	# print(str(sectorName) + '지수: ' + sectorChange)
+	# print('증시동향:\n\t' + newsTitleList[0] + '\n\t' + newsTitleList[1] + '\n\t' + newsTitleList[2] + '\n\t' + newsTitleList[3] + '\n\t' + newsTitleList[4])
 
-	print('기업: ' + companyName)
-	print('주가: ' + companyPrice)
-	print('주가 등락: ' + companyPriceChange)
-	print('시가총액(조원): ' + companyMCap)
-	print('외인 보유 비중: ' + companyForeignPercentage + '%')
-	print('외인 순매매량(천): ' + companyForeignSoldQuantity)
-	print(str(sectorName) + '지수: ' + sectorChange)
-	print('증시동향:\n\t' + newsTitleList[0] + '\n\t' + newsTitleList[1] + '\n\t' + newsTitleList[2] + '\n\t' + newsTitleList[3] + '\n\t' + newsTitleList[4])
-
+def main1():
+	return companyName
+def main2():
+	return companyPrice
+def main3():
+	return companyPriceChange+'%'
+def main4():
+	return companyMCap
+def main5():
+	return companyForeignPercentage+'%'
+def main6():
+	return companyForeignSoldQuantity
+def main7():
+	return sectorName
+def main8():
+	return sectorChange
+def main9():
+	return newsTitleList[0]
+def main10():
+	return newsTitleList[1]
+def main11():
+	return newsTitleList[2]
+def main12():
+	return newsTitleList[3]
+def main13():
+	return newsTitleList[4]

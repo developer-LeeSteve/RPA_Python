@@ -22,5 +22,7 @@ for i in tempkospiChange:
 	if i == '%':
 		check = False
 
-print('코스피: ' + kospi)
-print('코스피 등락률: ' + kospiChange)
+def main1():
+	return kospi
+def main2():
+	return kospiChange
