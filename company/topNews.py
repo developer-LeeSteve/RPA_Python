@@ -15,9 +15,14 @@ dotCnt = 0
 for i in range(len(mainNewsContent)):
 	if mainNewsContent[i] == '.':
 		dotCnt += 1
+	if mainNewsContent[i] != '.':
+		dotCnt = 0
 	if dotCnt == 2:
 		mainNewsContent = mainNewsContent[:i+1]
 		break
+
+print(mainNewsTitle)
+print(mainNewsContent)
 
 def main1():
 	return mainNewsTitle
