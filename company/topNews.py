@@ -8,8 +8,14 @@ req = requests.get(url)
 html = req.text
 soup = BeautifulSoup(html, 'html.parser')
 
-mainNewsTitle = soup.select_one('#contentarea_left > div.mainNewsList > ul > li:nth-child(1) > dl > dd.articleSubject > a').get_text()
-mainNewsContent = soup.select_one('#contentarea_left > div.mainNewsList > ul > li:nth-child(1) > dl > dd.articleSummary').get_text()[11:]
+try:
+	mainNewsTitle = soup.select_one('#contentarea_left > div.mainNewsList > ul > li:nth-child(1) > dl > dd.articleSubject > a').get_text()
+except:
+	mainNewsTitle = soup.select_one('#contentarea_left > div.mainNewsList > ul > li:nth-child(1) > dl > dt > a').get_text()
+try:
+	mainNewsContent = soup.select_one('#contentarea_left > div.mainNewsList > ul > li:nth-child(1) > dl > dd.articleSummary').get_text()[11:]  
+except:
+	mainNewsContent = soup.select_one('#contentarea_left > div.mainNewsList > ul > li:nth-child(1) > dl > dd').get_text()[11:]
 
 dotCnt = 0
 for i in range(len(mainNewsContent)):
