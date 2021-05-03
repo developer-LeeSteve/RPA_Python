@@ -46,7 +46,8 @@ for i in range(tbCount):
 			if len(companyPriceChange) == 0:
 				companyPriceChange = str(0)
 			elif companyPriceChange[0] != '-':
-				companyPriceChange = '+' + companyPriceChange
+				companyPriceChange = companyPriceChange
+				# companyPriceChange = '+' + companyPriceChange
 
 			tempMCap = soup.select_one('#contentarea > div.box_type_l > table.type_2 > tbody > tr:nth-child(' + str(i+1) + ') > td:nth-child(7)').get_text()
 			companyMCap = ''.join([x for x in tempMCap if x.isdigit()]) + '0'*8
@@ -109,7 +110,6 @@ if check:
 		newsTitleTable = newsFind.find_all("tr")[0]
 		companyNewsTitle = newsTitleTable.get_text()
 		newsTitleList.append(companyNewsTitle)
-
 
 def fcompanyName():
 	return companyName
