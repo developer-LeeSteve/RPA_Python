@@ -89,7 +89,8 @@ def _intersection():
 if __name__ == '__main__':
    # print(_intersection())
    # print(distance)
-   print("Young's Modulus: " + str("%.1f" %(final_gradient/1000)) + 'GPa')
+   print(final_gradient)
+   # print("Young's Modulus: " + str("%.1f" %(final_gradient/1000)) + 'GPa')
    print("Yield Strength: " + str(intersection[1]) + 'MPa')
    print("Tensile Strength: " + str(TS[1]) + 'MPa')
    print("Elongation: " + str(elongation_point[0]))
